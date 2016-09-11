@@ -1,13 +1,16 @@
 <html>
+<script src="application.js"></script>
+<script src="src/statisticsCalculator.js"></script>
 <body>
 
 <div><input id="input-box" style="margin-top: 10px; margin-bottom: 20px; width: 500px; height: 30px;"></div>
 
 <div id="buttons">
-    <button id="max" onclick="new Application().init()">Maximum</button>
+    <button id="max">Maximum</button>
     <button id="min">Minimum</button>
     <button id="average">Average</button>
     <button id="length">Sequence Length</button>
+    <button id="button-id">test</button>
 </div>
 
 <div id="result" style="margin-top: 10px;width: 500px;">
@@ -20,4 +23,7 @@
 </div>
 
 </body>
+<script>
+    Application().init();
+</script>
 </html>

@@ -10,12 +10,17 @@ describe('application', function () {
 
     beforeEach(function () {
         container = fixture(
+          '<input id="input-box"></input>' +
           '<div id="result-value">sample html</div>' +
           '<button id="button-id"></button>' +
-          '<button id="max"></button>'
+          '<button id="max"></button>' +
+          '<button id="min"></button>' +
+          '<button id="average"></button>' +
+          '<button id="length"></button>'
         );
         document.body.appendChild(container);
         application = new Application(document);
+        document.getElementById("input-box").value = "1, 2, 8, 4";
     });
 
     afterEach(function () {
@@ -34,6 +39,20 @@ describe('application', function () {
         document.getElementById('max').click();
 
         expect(document.getElementById('result-value').textContent).toEqual('8');
+    });
+
+    it('should change results-value when min-button is clicked', function () {
+        application.init();
+        document.getElementById('min').click();
+
+        expect(document.getElementById('result-value').textContent).toEqual('1');
+    });
+
+    it('should change results-value when length-button is clicked', function () {
+        application.init();
+        document.getElementById('length').click();
+
+        expect(document.getElementById('result-value').textContent).toEqual('4');
     });
 });
 
